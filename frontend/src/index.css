@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #111827;
+  --color-secondary: #c59b72;
+  --color-dark: #0b0f19;
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#fbfaf7] text-slate-800 font-sans antialiased selection:bg-secondary selection:text-white;
+  }
+}
+
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border-b border-stone-200/40 shadow-sm;
+}
+
+.loader {
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #c59b72;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 3D Logo Animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.logo-cube {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(-45deg);
+  animation: spin-cube 6s infinite linear;
+}
+@keyframes spin-cube {
+  0% { transform: rotateX(-20deg) rotateY(0deg); }
+  100% { transform: rotateX(-20deg) rotateY(360deg); }
+}
+.logo-face {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  backdrop-filter: blur(4px);
+}
+.face-front  { transform: translateZ(14px); background: rgba(17, 24, 39, 0.9); box-shadow: 0 0 15px rgba(197, 155, 114, 0.3); }
+.face-back   { transform: rotateY(180deg) translateZ(14px); background: rgba(17, 24, 39, 0.9); }
+.face-right  { transform: rotateY(90deg) translateZ(14px); background: rgba(197, 155, 114, 0.9); }
+.face-left   { transform: rotateY(-90deg) translateZ(14px); background: rgba(197, 155, 114, 0.9); }
+.face-top    { transform: rotateX(90deg) translateZ(14px); background: rgba(243, 244, 246, 0.95); color: #111827; border-color: rgba(0,0,0,0.1); }
+.face-bottom { transform: rotateX(-90deg) translateZ(14px); background: rgba(17, 24, 39, 0.95); box-shadow: 0 10px 20px rgba(0,0,0,0.25); }
