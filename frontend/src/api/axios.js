@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://course-selling-app-ht6d.onrender.com', // Adjust base URL for production
+    baseURL: 'https://course-selling-app-ht6d.onrender.com/api', // Adjust base URL for production
 });
 
 api.interceptors.request.use((config) => {
